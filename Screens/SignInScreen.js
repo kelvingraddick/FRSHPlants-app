@@ -1,6 +1,5 @@
 import React from 'react';
-import { StatusBar, SafeAreaView, View, Image, ImageBackground, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import { ColorAndroid } from 'react-native/Libraries/StyleSheet/PlatformColorValueTypesAndroid';
+import { StatusBar, View, Image, ImageBackground, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import Colors from '../Constants/Colors';
 import Fonts from '../Constants/Fonts';
 

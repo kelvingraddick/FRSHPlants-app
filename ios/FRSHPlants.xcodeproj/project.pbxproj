@@ -18,6 +18,8 @@
 		68A274BF4266AC2735CAB8FA /* libPods-FRSHPlants-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 083A14D2C2627F0847DF1AF5 /* libPods-FRSHPlants-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8B20242EF623EFC888828AA6 /* libPods-FRSHPlants.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD54206A1C65F35127F58291 /* libPods-FRSHPlants.a */; };
+		B6A9BB78253D8766002EB2A1 /* FRSHPlants-icon-white.png in Resources */ = {isa = PBXBuildFile; fileRef = B6A9BB77253D8766002EB2A1 /* FRSHPlants-icon-white.png */; };
+		B6A9BB7E253D881F002EB2A1 /* plants-background-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6A9BB7D253D881F002EB2A1 /* plants-background-1.jpg */; };
 		C99706E8D9DD0043E1AD3462 /* libPods-FRSHPlants-FRSHPlantsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E271FC2A566DD06634213B5 /* libPods-FRSHPlants-FRSHPlantsTests.a */; };
 		E75786E175F325E40C3577C5 /* libPods-FRSHPlants-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3194D8B67A889405A1457B /* libPods-FRSHPlants-tvOSTests.a */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		9A76A54BC9D84F4ABCA65C15 /* Pods-FRSHPlants-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRSHPlants-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-FRSHPlants-tvOS/Pods-FRSHPlants-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9E271FC2A566DD06634213B5 /* libPods-FRSHPlants-FRSHPlantsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRSHPlants-FRSHPlantsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B64FCE157C976DD6B8B9DDB5 /* Pods-FRSHPlants-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRSHPlants-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-FRSHPlants-tvOSTests/Pods-FRSHPlants-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B6A9BB77253D8766002EB2A1 /* FRSHPlants-icon-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FRSHPlants-icon-white.png"; sourceTree = "<group>"; };
+		B6A9BB7D253D881F002EB2A1 /* plants-background-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "plants-background-1.jpg"; sourceTree = "<group>"; };
 		BA3194D8B67A889405A1457B /* libPods-FRSHPlants-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRSHPlants-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB5A791C22E6CA7BC14C199A /* Pods-FRSHPlants-FRSHPlantsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRSHPlants-FRSHPlantsTests.release.xcconfig"; path = "Target Support Files/Pods-FRSHPlants-FRSHPlantsTests/Pods-FRSHPlants-FRSHPlantsTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD54206A1C65F35127F58291 /* libPods-FRSHPlants.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRSHPlants.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +129,7 @@
 		13B07FAE1A68108700A75B9A /* FRSHPlants */ = {
 			isa = PBXGroup;
 			children = (
+				B6A9BB58253D81C0002EB2A1 /* Images */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -161,7 +166,6 @@
 				B64FCE157C976DD6B8B9DDB5 /* Pods-FRSHPlants-tvOSTests.debug.xcconfig */,
 				193D5FEFC1FC5A7EA085BE15 /* Pods-FRSHPlants-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -196,6 +200,15 @@
 				2D02E4901E0B4A5D006451C7 /* FRSHPlants-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B6A9BB58253D81C0002EB2A1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				B6A9BB7D253D881F002EB2A1 /* plants-background-1.jpg */,
+				B6A9BB77253D8766002EB2A1 /* FRSHPlants-icon-white.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,6 +355,8 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B6A9BB78253D8766002EB2A1 /* FRSHPlants-icon-white.png in Resources */,
+				B6A9BB7E253D881F002EB2A1 /* plants-background-1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

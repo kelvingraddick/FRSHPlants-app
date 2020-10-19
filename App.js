@@ -11,20 +11,13 @@ import { View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import LoadingScreen from './Screens/LoadingScreen';
 import SignInScreen from './Screens/SignInScreen';
 
 state = {
   isLoading: true,
   isSignedIn: false
 };
-
-function LoadingScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Loading!</Text>
-    </View>
-  );
-}
 
 function HomeScreen() {
   return (
