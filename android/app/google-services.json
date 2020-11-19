@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "617964094388",
+    "firebase_url": "https://frshplants-app.firebaseio.com",
+    "project_id": "frshplants-app",
+    "storage_bucket": "frshplants-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617964094388:android:72066549bb58e042cf68e1",
+        "android_client_info": {
+          "package_name": "com.frshplants"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617964094388-g2ji48ce6kj2nu09ar06gaoj7ddip2oe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOVLTM-9qnCqNaxqbqn9hK_0s00HKjznI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617964094388-g2ji48ce6kj2nu09ar06gaoj7ddip2oe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
