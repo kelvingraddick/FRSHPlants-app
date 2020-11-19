@@ -7,30 +7,20 @@
  */
 
 import React, { useState, useEffect } from "react";
-import { View, Text } from 'react-native';
+import { View, Text,  } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import auth from '@react-native-firebase/auth';
 import LoadingScreen from './Screens/LoadingScreen';
+import SignUpScreen from './Screens/SignUpScreen';
 import SignInScreen from './Screens/SignInScreen';
-
-state = {
-  isLoading: true,
-  isSignedIn: false
-};
+import SettingsScreen from './Screens/SettingsScreen';
 
 function HomeScreen() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home!</Text>
-    </View>
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
+      <Text>Home screen coming soon!</Text>
     </View>
   );
 }
@@ -40,13 +30,17 @@ const Stack = createStackNavigator();
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [user, setUser] = useState();
 
   useEffect(() => {
-    setTimeout(function() {
-      setIsLoading(false);
-    }, 1500);
-  });
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber;
+  }, []);
+
+  function onAuthStateChanged(user) {
+    setUser(user);
+    if (isLoading) setIsLoading(false);
+  }
 
   return (
     <NavigationContainer>
@@ -56,7 +50,7 @@ const App = () => {
             <LoadingScreen />
           ) :
           (
-            isSignedIn ?
+            user ?
               (
                 <Tab.Navigator>
                   <Tab.Screen name="Home" component={HomeScreen} />
@@ -65,7 +59,14 @@ const App = () => {
               ) :
               ( 
                 <Stack.Navigator>
-                  <Stack.Screen name="Sign In" component={SignInScreen} options={{ headerShown: false }} />
+                  <Stack.Screen name="Sign Up" component={SignUpScreen} options={{ headerShown: false }} />
+                  <Stack.Screen name="Sign In" component={SignInScreen} options={{
+                    title: '',
+                    headerStyle: {
+                      backgroundColor: '#102D1B',
+                    },
+                    headerTintColor: '#fff'
+                  }} />
                 </Stack.Navigator>
               )
           )
