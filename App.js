@@ -15,18 +15,30 @@ import auth from '@react-native-firebase/auth';
 import LoadingScreen from './Screens/LoadingScreen';
 import SignUpScreen from './Screens/SignUpScreen';
 import SignInScreen from './Screens/SignInScreen';
+import SearchScreen from './Screens/SearchScreen';
 import SettingsScreen from './Screens/SettingsScreen';
+import HeaderComponent from './Components/HeaderComponent';
 
-function HomeScreen() {
+const SearchStack = createStackNavigator();
+function SearchStackScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home screen coming soon!</Text>
-    </View>
+    <SearchStack.Navigator>
+      <SearchStack.Screen name="Search plants" component={SearchScreen} options={{ header: props => <HeaderComponent {...props} /> }} />
+    </SearchStack.Navigator>
   );
 }
 
-const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
+const SettingsStack = createStackNavigator();
+function SettingsStackScreen() {
+  return (
+    <SettingsStack.Navigator>
+      <SettingsStack.Screen name="Search plants" component={SettingsScreen} />
+    </SettingsStack.Navigator>
+  );
+}
+
+const BottomTab = createBottomTabNavigator();
+const SignUpStack = createStackNavigator();
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -52,22 +64,22 @@ const App = () => {
           (
             user ?
               (
-                <Tab.Navigator>
-                  <Tab.Screen name="Home" component={HomeScreen} />
-                  <Tab.Screen name="Settings" component={SettingsScreen} />
-                </Tab.Navigator>
+                <BottomTab.Navigator>
+                  <BottomTab.Screen name="Search plants" component={SearchStackScreen} />
+                  <BottomTab.Screen name="Settings" component={SettingsStackScreen} />
+                </BottomTab.Navigator>
               ) :
               ( 
-                <Stack.Navigator>
-                  <Stack.Screen name="Sign Up" component={SignUpScreen} options={{ headerShown: false }} />
-                  <Stack.Screen name="Sign In" component={SignInScreen} options={{
+                <SignUpStack.Navigator>
+                  <SignUpStack.Screen name="Sign Up" component={SignUpScreen} options={{ headerShown: false }} />
+                  <SignUpStack.Screen name="Sign In" component={SignInScreen} options={{
                     title: '',
                     headerStyle: {
                       backgroundColor: '#102D1B',
                     },
                     headerTintColor: '#fff'
                   }} />
-                </Stack.Navigator>
+                </SignUpStack.Navigator>
               )
           )
       }
