@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StatusBar, View, Image, ImageBackground, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { StatusBar, KeyboardAvoidingView, View, Image, ImageBackground, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import Colors from '../Constants/Colors';
 import Fonts from '../Constants/Fonts';
@@ -33,7 +33,7 @@ const SignUpScreen = ({ navigation }) => {
   return (
     <>
       <StatusBar hidden />
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container} contentContainerStyle={styles.container} behavior={Platform.OS == "ios" ? "padding" : "height"}>
         <ImageBackground style={styles.backgroundImage} source={require('../Images/plants-background-1.jpg')}>
           <Image style={styles.logoImage} source={require('../Images/FRSHPlants-logo-white-1.png')} />
         </ImageBackground>
@@ -67,7 +67,7 @@ const SignUpScreen = ({ navigation }) => {
           </TouchableOpacity>
           <Text style={styles.footerText} onPress={() => navigation.navigate('Sign In')}>Have an account? Sign in instead.</Text>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     </>
   );
 }
@@ -77,6 +77,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 0,
     backgroundColor: Colors.LIGHT_GRAY,
+    //justifyContent: 'space-between',
     alignItems: 'stretch',
     alignContent: 'center'
   },
@@ -96,12 +97,12 @@ const styles = StyleSheet.create({
     color: Colors.GRAY,
     fontFamily: Fonts.MEDIUM,
     fontSize: 20,
-    //opacity: 0.75
-  },
-  footer: {
-    paddingBottom: 50,
+    //opacity: 0.75,
     flex: 1,
     justifyContent: 'flex-end'
+  },
+  footer: {
+    paddingBottom: 50
   },
   textBox: {
     height: 60,

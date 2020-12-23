@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StatusBar, View, Image, ImageBackground, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { StatusBar, KeyboardAvoidingView, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import Colors from '../Constants/Colors';
 import Fonts from '../Constants/Fonts';
@@ -31,7 +31,7 @@ const SignInScreen = ({ navigation }) => {
   return (
     <>
       <StatusBar hidden />
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container} behavior={Platform.OS == "ios" ? "padding" : "height"}>
         <Text style={styles.titleText}>Welcome back!</Text>
         <TextInput
           style={styles.textBox}
@@ -60,7 +60,7 @@ const SignInScreen = ({ navigation }) => {
           <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
         <Text style={styles.footerText} onPress={() => navigation.goBack()}>Don't have an account? Sign up instead.</Text>
-      </View>
+      </KeyboardAvoidingView>
     </>
   );
 }
