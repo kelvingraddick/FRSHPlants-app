@@ -7,22 +7,39 @@ import Colors from '../Constants/Colors';
 import Fonts from '../Constants/Fonts';
 
 const SearchScreen = ({ navigation }) => {
-  const [query, setQuery] = useState();
-  const [plants, setPlants] = useState();
+  const [databasePlants, setDatabasePlants] = useState();
+  const [filteredPlants, setFilteredPlants] = useState();
 
   useEffect(() => {
-    const plants = firestore()
+    getPlants();
+    return () => getPlants();
+  }, []);
+
+  const getPlants = async function() {
+    await firestore()
       .collection('plants')
-      .onSnapshot(collectionSnapshot => {
+      .get()
+      .then(collectionSnapshot => {
         const plants = [];
         collectionSnapshot.forEach(documentSnapshot => {
           plants.push({ id: documentSnapshot.id, ...documentSnapshot.data() });
         });
-        console.info(plants);
-        setPlants(plants);
+        setDatabasePlants(plants);
+        setFilteredPlants(plants);
+        console.info('Retrieved plants from database: ' + JSON.stringify(plants));
       });
-    return () => plants();
-  }, []);
+  };
+
+  const filterPlants = function(query) {
+    query = (query || '').toLowerCase();
+    const plants = [];
+    databasePlants.forEach(databasePlant => {
+      if (databasePlant.commonName.toLowerCase().includes(query)) {
+        plants.push(databasePlant);
+      }
+    });
+    setFilteredPlants(plants);
+  };
 
   return (
     <>
@@ -34,8 +51,7 @@ const SearchScreen = ({ navigation }) => {
           placeholderTextColor={Colors.GRAY}
           autoCapitalize='none'
           keyboardType='web-search'
-          onChangeText={text => setQuery(text)}
-          value={query}
+          onChangeText={text => filterPlants(text)}
         />
         <View style={styles.iconButtonContainer}>
           <IconButtonComponent text='Plants' image={require('../Images/plants-icon.png')} />
@@ -46,7 +62,7 @@ const SearchScreen = ({ navigation }) => {
           <IconButtonComponent text='Vegetables' image={require('../Images/vegetables-icon.png')} />
         </View>
         <FlatList
-          data={plants}
+          data={filteredPlants}
           keyExtractor={item => item.id}
           renderItem={({ item, index, separators }) => <PlantItemComponent plant={item} /> }
         />
