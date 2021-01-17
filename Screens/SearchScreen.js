@@ -9,6 +9,8 @@ import Fonts from '../Constants/Fonts';
 const SearchScreen = ({ navigation }) => {
   const [databasePlants, setDatabasePlants] = useState();
   const [filteredPlants, setFilteredPlants] = useState();
+  const [filterText, setFilterText] = useState();
+  const [filterCategory, setFilterCategory] = useState();
 
   useEffect(() => {
     getPlants();
@@ -30,16 +32,28 @@ const SearchScreen = ({ navigation }) => {
       });
   };
 
-  const filterPlants = function(query) {
-    query = (query || '').toLowerCase();
+  const filterPlantsByText = function(text) {
+    console.info('Filter plants by text: ' + text);
+    setFilterText(text);
+    filterPlants(text, filterCategory);
+  };
+
+  const filterPlantsByCategory = function(category) {
+    console.info('Filter plants by category: ' + category);
+    setFilterCategory(category != filterCategory ? category : null);
+    filterPlants(filterText, category);
+  };
+
+  const filterPlants = function(text, category) {
     const plants = [];
     databasePlants.forEach(databasePlant => {
-      if (databasePlant.commonName.toLowerCase().includes(query)) {
+      if ((!text || (databasePlant.commonName && databasePlant.commonName.toLowerCase().includes(text))) &&
+          (!category || (databasePlant.categories && databasePlant.categories.includes(category)))) {
         plants.push(databasePlant);
       }
     });
     setFilteredPlants(plants);
-  };
+  }
 
   return (
     <>
@@ -51,15 +65,13 @@ const SearchScreen = ({ navigation }) => {
           placeholderTextColor={Colors.GRAY}
           autoCapitalize='none'
           keyboardType='web-search'
-          onChangeText={text => filterPlants(text)}
+          onChangeText={text => filterPlantsByText(text)}
         />
         <View style={styles.iconButtonContainer}>
-          <IconButtonComponent text='Plants' image={require('../Images/plants-icon.png')} />
-          <IconButtonComponent text='Flowers' image={require('../Images/flowers-icon.png')} />
-        </View>
-        <View style={styles.iconButtonContainer}>
-          <IconButtonComponent text='Fruits' image={require('../Images/fruits-icon.png')} />
-          <IconButtonComponent text='Vegetables' image={require('../Images/vegetables-icon.png')} />
+          <IconButtonComponent text='Plants' image={require('../Images/plants-icon.png')} isSelected={filterCategory == null || filterCategory == 'plant'} onPress={() => filterPlantsByCategory('plant')} />
+          <IconButtonComponent text='Flowers' image={require('../Images/flowers-icon.png')} isSelected={filterCategory == null || filterCategory == 'flower'} onPress={() => filterPlantsByCategory('flower')} />
+          <IconButtonComponent text='Fruits' image={require('../Images/fruits-icon.png')} isSelected={filterCategory == null || filterCategory == 'fruit'} onPress={() => filterPlantsByCategory('fruit')} />
+          <IconButtonComponent text='Vegetables' image={require('../Images/vegetables-icon.png')} isSelected={filterCategory == null || filterCategory == 'vegetable'} onPress={() => filterPlantsByCategory('vegetable')} />
         </View>
         <FlatList
           data={filteredPlants}
@@ -100,7 +112,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   iconButtonContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   }
 });
 
