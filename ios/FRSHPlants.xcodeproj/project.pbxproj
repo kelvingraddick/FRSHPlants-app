@@ -26,6 +26,7 @@
 		B6A9BB7E253D881F002EB2A1 /* plants-background-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6A9BB7D253D881F002EB2A1 /* plants-background-1.jpg */; };
 		C99706E8D9DD0043E1AD3462 /* libPods-FRSHPlants-FRSHPlantsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E271FC2A566DD06634213B5 /* libPods-FRSHPlants-FRSHPlantsTests.a */; };
 		E75786E175F325E40C3577C5 /* libPods-FRSHPlants-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3194D8B67A889405A1457B /* libPods-FRSHPlants-tvOSTests.a */; };
+		F9896EB9DFFF459482A57E03 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D95F44896EC74A28A3AD9034 /* Ionicons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		CD54206A1C65F35127F58291 /* libPods-FRSHPlants.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRSHPlants.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		D95F44896EC74A28A3AD9034 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-ionicons/fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				6FB56831FF8313A1BF31D195 /* Pods */,
+				334CFB2745B14469853E3136 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -216,6 +219,15 @@
 			);
 			path = Images;
 			sourceTree = "<group>";
+		};
+		334CFB2745B14469853E3136 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				D95F44896EC74A28A3AD9034 /* Ionicons.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -367,6 +379,7 @@
 				B638448A2566368E005B60CE /* GoogleService-Info.plist in Resources */,
 				B6A9BB78253D8766002EB2A1 /* FRSHPlants-icon-white.png in Resources */,
 				B6A9BB7E253D881F002EB2A1 /* plants-background-1.jpg in Resources */,
+				F9896EB9DFFF459482A57E03 /* Ionicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

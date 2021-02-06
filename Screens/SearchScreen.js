@@ -76,7 +76,7 @@ const SearchScreen = ({ navigation }) => {
         <FlatList
           data={filteredPlants}
           keyExtractor={item => item.id}
-          renderItem={({ item, index, separators }) => <PlantItemComponent plant={item} /> }
+          renderItem={({ item, index, separators }) => <PlantItemComponent plant={item} onPress={() => navigation.navigate('Plant', { id: item.id })} /> }
         />
       </View>
     </>
