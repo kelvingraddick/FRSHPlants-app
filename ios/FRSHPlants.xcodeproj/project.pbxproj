@@ -75,9 +75,9 @@
 		BA3194D8B67A889405A1457B /* libPods-FRSHPlants-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRSHPlants-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB5A791C22E6CA7BC14C199A /* Pods-FRSHPlants-FRSHPlantsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FRSHPlants-FRSHPlantsTests.release.xcconfig"; path = "Target Support Files/Pods-FRSHPlants-FRSHPlantsTests/Pods-FRSHPlants-FRSHPlantsTests.release.xcconfig"; sourceTree = "<group>"; };
 		CD54206A1C65F35127F58291 /* libPods-FRSHPlants.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FRSHPlants.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D95F44896EC74A28A3AD9034 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-ionicons/fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		D95F44896EC74A28A3AD9034 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-ionicons/fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +162,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		334CFB2745B14469853E3136 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D95F44896EC74A28A3AD9034 /* Ionicons.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		6FB56831FF8313A1BF31D195 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,15 +227,6 @@
 			);
 			path = Images;
 			sourceTree = "<group>";
-		};
-		334CFB2745B14469853E3136 /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				D95F44896EC74A28A3AD9034 /* Ionicons.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
