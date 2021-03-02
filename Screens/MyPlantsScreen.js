@@ -14,15 +14,13 @@ const MyPlantsScreen = ({ navigation }) => {
 
   useEffect(() => {
     getMyPlants();
-    return () => getMyPlants();
   }, []);
 
   const getMyPlants = async function() {
     await firestore()
       .collection('adds')
       .where('userId', '==', auth().currentUser.uid)
-      .get()
-      .then(async collectionSnapshot => {
+      .onSnapshot(async collectionSnapshot => {
         const adds = [];
         collectionSnapshot.forEach(documentSnapshot => {
           adds.push({ id: documentSnapshot.id, ...documentSnapshot.data() });
