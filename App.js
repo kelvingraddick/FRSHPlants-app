@@ -17,6 +17,7 @@ import LoadingScreen from './Screens/LoadingScreen';
 import SignUpScreen from './Screens/SignUpScreen';
 import SignInScreen from './Screens/SignInScreen';
 import SearchScreen from './Screens/SearchScreen';
+import MyPlantsScreen from './Screens/MyPlantsScreen';
 import SettingsScreen from './Screens/SettingsScreen';
 import PlantScreen from './Screens/PlantScreen';
 import HeaderComponent from './Components/HeaderComponent';
@@ -29,6 +30,16 @@ function SearchStackScreen() {
       <SearchStack.Screen name="Search plants" component={SearchScreen} options={{ header: props => <HeaderComponent {...props} /> }} />
       <SearchStack.Screen name="Plant" component={PlantScreen} />
     </SearchStack.Navigator>
+  );
+}
+
+const MyPlantsStack = createStackNavigator();
+function MyPlantsStackScreen() {
+  return (
+    <MyPlantsStack.Navigator>
+      <MyPlantsStack.Screen name="My plants" component={MyPlantsScreen} options={{ header: props => <HeaderComponent {...props} /> }} />
+      <MyPlantsStack.Screen name="Plant" component={PlantScreen} />
+    </MyPlantsStack.Navigator>
   );
 }
 
@@ -72,6 +83,11 @@ const App = () => {
                   <BottomTab.Screen name="Search plants" component={SearchStackScreen} options={{ 
                     tabBarIcon: ({ focused, horizontal, tintColor }) => {
                       return <Icon style={[styles.tabIcon, focused ? styles.tabIconFocused : styles.tabIconNormal ]} name="eye" />;
+                    }
+                  }} />
+                  <BottomTab.Screen name="My plants" component={MyPlantsStackScreen} options={{ 
+                    tabBarIcon: ({ focused, horizontal, tintColor }) => {
+                      return <Icon style={[styles.tabIcon, focused ? styles.tabIconFocused : styles.tabIconNormal ]} name="leaf" />;
                     }
                   }} />
                   <BottomTab.Screen name="Settings" component={SettingsStackScreen} options={{ 
